@@ -1,0 +1,8 @@
+{
+  "name": "Sistem Pembagian Jasa Manajemen",
+  "description": "Aplikasi pembagian jasa manajemen dan laporan bulanan dengan perhitungan otomatis dan integrasi Google Sheets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

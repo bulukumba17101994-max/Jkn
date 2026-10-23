@@ -1,0 +1,42 @@
+{
+  "entities": {
+    "MonthlyRecord": {
+      "title": "MonthlyRecord",
+      "description": "Dokumen arsip dan perhitungan jaspel bulanan",
+      "type": "object",
+      "properties": {
+        "period": { "type": "string", "maxLength": 50 },
+        "periodLabel": { "type": "string", "maxLength": 100 },
+        "totalAmount": { "type": "number" },
+        "status": { "type": "string", "enum": ["Draft", "Disetujui", "Dicairkan"] },
+        "createdAt": { "type": "string", "maxLength": 50 },
+        "updatedAt": { "type": "string", "maxLength": 50 },
+        "groups": { "type": "array" },
+        "notes": { "type": "string", "maxLength": 500 },
+        "updatedBy": { "type": "string", "maxLength": 100 }
+      },
+      "required": ["period", "periodLabel", "totalAmount", "status", "groups"]
+    },
+    "SyncSettings": {
+      "title": "SyncSettings",
+      "description": "Konfigurasi auto sinkronisasi Google Sheets dan status cloud",
+      "type": "object",
+      "properties": {
+        "autoSyncEnabled": { "type": "boolean" },
+        "spreadsheetId": { "type": "string", "maxLength": 200 },
+        "lastSyncTime": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["autoSyncEnabled"]
+    }
+  },
+  "firestore": {
+    "/monthly_records/{recordId}": {
+      "schema": "MonthlyRecord",
+      "description": "Koleksi arsip dan data kalkulasi jaspel manajemen per bulan"
+    },
+    "/settings/{settingId}": {
+      "schema": "SyncSettings",
+      "description": "Pengaturan sinkronisasi sistem dan integrasi Google Sheets"
+    }
+  }
+}
